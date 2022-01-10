@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+    <link rel="icon" type="image/x-icon" href="img/icon.png">
+    <link rel="preload" as="image" href="img/0.png">
+    <link rel="preload" as="image" href="img/1.png">
+    <link rel="preload" as="image" href="img/2.png">
+    <link rel="preload" as="image" href="img/3.png">
+    <link rel="preload" as="image" href="img/4.png">
+    <link rel="preload" as="image" href="img/5.png">
+    <link rel="preload" as="image" href="img/6.png">
+    <link rel="preload" as="image" href="img/7.png">
+    <link rel="preload" as="image" href="img/8.png">
+    <link rel="preload" as="image" href="img/9.png">
+    <link rel="preload" as="image" href="img/10.png">
+    <link rel="preload" as="image" href="img/11.png">
+    <link rel="preload" as="image" href="img/12.png">
+    <link rel="preload" as="image" href="img/13.png">
+    <link rel="preload" as="image" href="img/14.png">
+    <link rel="preload" as="image" href="img/15.png">
+    <link rel="preload" as="image" href="img/16.png">
+    <link rel="preload" as="image" href="img/17.png">
+    <link rel="preload" as="image" href="img/18.png">
+    <title>623020477-5</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">PANITHAN</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Work
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item active" href="#">Work1</a></li>
+                    <li><a class="dropdown-item" href="#">Work2</a></li>
+                </ul>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid bg-dark text-light p-5">
+        <div class="container text-center">
+            <h1>WORK1:  JQuery + Boostrap</h1>
+            <h5 class="pt-3">Matching Game</h5>
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid p-5">
+        <div class="container text-center">
+            <h1>Score</h1>
+            <h3 id="score">0</h3>
+        </div>
+        <div class="container text-center my-3">
+            <button class="colbtn btn-primary btn-lg" type="button" id="btn_reset">Reset</button>
+        </div>
+    </div>
+    <div class="container-fluid p-5">
+        <div class="container text-center" id="gameSpace">
+            <div class="row row-cols-6">
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="1"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="2"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="3"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="4"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="5"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="6"></div>
+            </div>
+            <div class="row row-cols-6">
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="7"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="8"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="9"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="10"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="11"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="12"></div>
+            </div>
+            <div class="row row-cols-6">
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="13"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="14"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="15"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="16"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="17"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="18"></div>
+            </div>
+            <div class="row row-cols-6">
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="19"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="20"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="21"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="22"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="23"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="24"></div>
+            </div>
+            <div class="row row-cols-6">
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="25"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="26"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="27"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="28"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="29"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="30"></div>
+            </div>
+            <div class="row row-cols-6">
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="31"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="32"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="33"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="34"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="35"></div>
+                <div class="col"><img src="img/block.png"  class="img-fluid" alt="block" id="36"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function(){
+            startGame();
+            $("#btn_reset").click(startGame);
+            $("#gameSpace img").click(imgClick);
+        });
+        function startGame(){
+            $("#gameSpace img").fadeOut("slow",function(){
+                $("#gameSpace img").attr('src',"img/block.png");
+                $("#gameSpace img").fadeIn("slow");
+            });
+            score = 0;
+            open_crad1= null;
+            open_crad1_id= null;
+            alredyOpen = [];
+            all_card=36;
+            updateScore();
+            shuffle();
+        }
+        function updateScore(){
+            $("#score").text(score.toString());
+        }
+        function shuffle(){
+            list = [];
+            list[0] = 0;
+            for(var i=1;i<=all_card ;i++){
+                list.push(i);
+                list.push(i);
+            }
+            for(var i=1;i<=all_card;i++){
+            var a=Math.round(Math.random()*35);
+            var b=Math.round(Math.random()*35);
+            var t=list[a];
+            list[a]=list[b];
+            list[b]=t;
+            }
+        }
+        function imgClick(){
+            var id = $(this).attr('id');
+            var card = list[id];
+            if(alredyOpen.includes(id))return;
+            if(open_crad1_id == id)return;
+            state = "openCard";
+            $(this).fadeOut("slow",function(){
+                $(this).attr('src',"img/"+card+".png");
+                $(this).fadeIn("slow",function(){
+                    if(open_crad1 == null &&open_crad1_id != id){
+                        open_crad1 = card;
+                        open_crad1_id = id;
+                        state = "idle";
+                        return;
+                    }
+                    if(open_crad1 == card){
+                        score++;
+                        updateScore();
+                        alredyOpen.push(open_crad1_id);
+                        alredyOpen.push(id);
+                    }
+                    else{
+                        $(this).fadeOut("slow",function(){
+                            $(this).attr('src',"img/block.png");
+                            $(this).fadeIn("slow");
+                        });
+                        $("#"+open_crad1_id).fadeOut("slow",function(){
+                            $(this).attr('src',"img/block.png");
+                            $(this).fadeIn("slow");
+                        });
+                    }
+                    open_crad1 = null;
+                    open_crad1_id = null;
+                });
+            });
+            
+
+        }
+        
+
+    </script>
+  </body>
+</html>
