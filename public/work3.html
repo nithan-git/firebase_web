@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="img/icon.png">
+    <link rel="preload" as="image" href="img/0.png">
+    <link rel="preload" as="image" href="img/1.png">
+    <link rel="preload" as="image" href="img/2.png">
+    <link rel="preload" as="image" href="img/3.png">
+    <link rel="preload" as="image" href="img/4.png">
+    <link rel="preload" as="image" href="img/5.png">
+    <link rel="preload" as="image" href="img/6.png">
+    <link rel="preload" as="image" href="img/7.png">
+    <link rel="preload" as="image" href="img/8.png">
+    <link rel="preload" as="image" href="img/9.png">
+    <link rel="preload" as="image" href="img/10.png">
+    <link rel="preload" as="image" href="img/11.png">
+    <link rel="preload" as="image" href="img/12.png">
+    <link rel="preload" as="image" href="img/13.png">
+    <link rel="preload" as="image" href="img/14.png">
+    <link rel="preload" as="image" href="img/15.png">
+    <link rel="preload" as="image" href="img/16.png">
+    <link rel="preload" as="image" href="img/17.png">
+    <link rel="preload" as="image" href="img/18.png">
+    <title>W3</title>
+    <style>
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                top: -30px;
+            }
+
+            to {
+                opacity: 1;
+                top: 0px;
+            }
+        }
+
+        @keyframes flip-in {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        .card-body div {
+            animation: 1.5s fade-in;
+            position: relative;
+        }
+
+        div.pic img {
+            width: 75px;
+            height: 75px;
+            animation: 0.5s flip-in;
+        }
+
+        div.pic {
+            height: 100px;
+        }
+
+        body{
+            background-color: rgba(245, 245, 245, 0.856);
+        }
+
+        .card{
+            background-color: rgba(196, 196, 196, 0.342);
+        }
+
+        .card-header{
+            background-color: rgb(49, 48, 48);
+            color: white;
+        }
+
+        .card-footer{
+            background-color: rgb(161, 161, 161);
+            color: white;
+        }
+    </style>
+</head>
+
+<body ng-app="app" ng-controller="game">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header p-4">{{title}}</div>
+            <div class="card-body">
+                <div ng-show="state===0">
+                    <button class="btn btn-primary" ng-click="startgame()">เริ่มเล่น</button>
+                    <a href="index.html" class="btn btn-danger">กลับหน้าหลัก</a>
+                </div>
+                <div ng-show="state===1">
+                    <div class="row">
+                        <div class="col-2 pic" ng-repeat="c in cards">
+                            <img ng-if='c.s==0' src="img/block.png" ng-click='imgclick(c)'>
+                            <img ng-if='c.s==1' ng-src="img/{{c.t}}.png">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" ng-click="state=0">ออกจากเกม</button>
+                </div>
+                <div ng-show="state===2">
+                    <h1>ชนะแล้ว</h1>
+                    <br>
+                    <br>
+                    <button class="btn btn-success" ng-click="state=2">ตกลง</button>
+                </div>
+            </div>
+            <div class="card-footer p-3">{{footer}}</div>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module("app", []);
+        app.controller("game", function ($scope, $timeout) {
+            $scope.title = "Work 3: เกมจับคู่ภาพ ด้วย AngularJS";
+            $scope.footer = "623020477-5 นายปณิธาน เทพบุดดี";
+            $scope.state = 0;
+            $scope.startgame = function () {
+                $scope.state = 1;
+                $scope.cards = [];
+                $scope.cards_opened = [];
+                $scope.cards_count = 36;
+                for (var i = 1; i <= 18; i++) {
+                    $scope.cards.push({ t: i, s: 0 });
+                    $scope.cards.push({ t: i, s: 0 });
+                }
+                for (var i = 1; i < 100; i++) {
+                    var a = Math.round(Math.random() * 15);
+                    var b = Math.round(Math.random() * 15);
+                    var t = $scope.cards[a];
+                    $scope.cards[a] = $scope.cards[b];
+                    $scope.cards[b] = t;
+                }
+            };
+            $scope.imgclick = function (c) {
+                if ($scope.cards_opened.length < 2) {
+                    c.s = 1;
+                    $scope.cards_opened.push(c);
+                    if ($scope.cards_opened.length == 2) {
+                        $timeout($scope.checkCard, 1000);
+                    }
+                }
+            };
+            $scope.checkCard = function () {
+                var a = $scope.cards_opened[0];
+                var b = $scope.cards_opened[1];
+                $scope.cards_opened = [];
+                if (a.t == b.t) {
+                    a.s = 2;
+                    b.s = 2;
+                    $scope.cards_count -= 2;
+                } else {
+                    a.s = 0;
+                    b.s = 0;
+                }
+                if ($scope.cards_count == 0) {
+                    $scope.state = 2;
+                }
+            };
+        });
+    </script>
+</body>
+
+</html>
