@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="img/icon.png">
+    <link rel="preload" as="image" href="img/0.png">
+    <link rel="preload" as="image" href="img/1.png">
+    <link rel="preload" as="image" href="img/2.png">
+    <link rel="preload" as="image" href="img/3.png">
+    <link rel="preload" as="image" href="img/4.png">
+    <link rel="preload" as="image" href="img/5.png">
+    <link rel="preload" as="image" href="img/6.png">
+    <link rel="preload" as="image" href="img/7.png">
+    <link rel="preload" as="image" href="img/8.png">
+    <link rel="preload" as="image" href="img/9.png">
+    <link rel="preload" as="image" href="img/10.png">
+    <link rel="preload" as="image" href="img/11.png">
+    <link rel="preload" as="image" href="img/12.png">
+    <link rel="preload" as="image" href="img/13.png">
+    <link rel="preload" as="image" href="img/14.png">
+    <link rel="preload" as="image" href="img/15.png">
+    <link rel="preload" as="image" href="img/16.png">
+    <link rel="preload" as="image" href="img/17.png">
+    <link rel="preload" as="image" href="img/18.png">
+    <title>W4</title>
+    <style>
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                top: -30px;
+            }
+
+            to {
+                opacity: 1;
+                top: 0px;
+            }
+        }
+
+        .card-body div {
+            animation: 1.5s fade-in;
+            position: relative;
+        }
+
+        div.pic img {
+            width: 75px;
+            height: 75px;
+        }
+
+        div.pic {
+            height: 100px;
+        }
+
+        body {
+            background-color: rgba(245, 245, 245, 0.856);
+        }
+
+        .card {
+            background-color: rgba(196, 196, 196, 0.342);
+        }
+
+        .card-header {
+            background-color: rgb(49, 48, 48);
+            color: white;
+        }
+
+        .card-footer {
+            background-color: rgb(161, 161, 161);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <div class='container-fluid'>
+        <div id='app'>
+
+        </div>
+    </div>
+
+
+    <script type="text/babel">
+        class Game extends React.Component {
+            title = "Work4: เกมจับคู่ภาพด้วย ReactJS";
+            footer = "623020477-5 นายปณิธาน เทพบุดดี";
+            cards_opened = [];
+            cards_count = 36;
+            constructor() {
+                super();
+                this.state = {
+                    page: 0
+                }
+            }
+
+            render() {
+                var p;
+                if (this.state.page == 0) p = <Page0 game={this} />;
+                if (this.state.page == 1) p = <Page1 game={this} cards={this.state.cards} />;
+                if (this.state.page == 2) p = <Page2 game={this} />;
+                return <div className='card text-center'>
+                    <div className="card-header p-4">{this.title}</div>
+                    <div className="card-body">
+                        {p}
+                    </div>
+                    <div className="card-footer p-3">{this.footer}</div>
+                </div>;
+            }
+
+            start() {
+                this.setState({ page: 1 });
+                var cards = [];
+                this.cards_opened = [];
+                this.cards_count = 36;
+                for (var i = 1; i <= 18; i++) {
+                    cards.push(<Card t={i} game={this} />);
+                    cards.push(<Card t={i} game={this} />);
+                }
+                for (var i = 1; i < 100; i++) {
+                    var a = Math.round(Math.random() * 15);
+                    var b = Math.round(Math.random() * 15);
+                    var t = cards[a];
+                    cards[a] = cards[b];
+                    cards[b] = t;
+                }
+                this.setState({ cards: cards })
+            }
+
+            goBack() {
+                this.setState({ page: 0 });
+            }
+
+            checkCard() {
+                var a = this.cards_opened[0];
+                var b = this.cards_opened[1];
+                this.cards_opened = [];
+                if (a.props.t == b.props.t) {
+                    a.setState({ s: 2 });
+                    b.setState({ s: 2 });
+                    this.cards_count -= 2;
+                } else {
+                    a.setState({ s: 0 });
+                    b.setState({ s: 0 });
+                }
+                if (this.cards_count == 0) {
+                    this.setState({ page: 2 });
+                }
+            }
+        };
+
+        function Page0(props) {
+            return <div>
+                <button className='btn btn-primary' onClick={() => props.game.start()}>เริ่มเล่นเกม</button>
+                &nbsp;
+                <a href='index.html' className='btn btn-danger'>กลับหน้าหลัก</a>
+            </div>
+        }
+
+        function Page1(props) {
+            return <div>
+                <div className='row'>
+                    {props.cards}
+                </div>
+
+                <button className='btn btn-danger m-3' onClick={() => props.game.goBack()}>เลิกเล่น</button>
+            </div>
+        }
+
+        function Page2(props) {
+            return <div>
+                <h1>ขอแสดงความยินดี คุณชนะแล้ว</h1>
+                <button className='btn btn-success'>ตกลง</button>
+            </div>
+        }
+
+        class Card extends React.Component {
+            constructor() {
+                super();
+                this.state = { s: 0 };
+            }
+            render() {
+                var m = <div></div>;
+                if (this.state.s === 0)
+                    m = <img src='img/block.png' onClick={() => this.imgclick()}></img>;
+                else if (this.state.s === 1)
+                    m = <img src={'img/' + this.props.t + '.png'}></img>;
+                return <div className='col-2 pic'>{m}</div>
+            }
+
+            imgclick() {
+                var g = this.props.game;
+                if (g.cards_opened.length < 2) {
+                    this.setState({ s: 1 });
+                    g.cards_opened.push(this);
+                    if (g.cards_opened.length === 2) {
+                        setTimeout(() => g.checkCard(), 1000);
+                    }
+                }
+            }
+        }
+
+        ReactDOM.render(<Game />, document.getElementById('app'))
+    </script>
+
+</body>
+
+</html>
