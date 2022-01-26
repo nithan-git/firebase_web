@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="img/icon.png">
+    <title>W5</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid bg-dark text-light p-5">
+        <div class="container text-center">
+            <h1>WORK5</h1>
+            <h5>Panorama</h5>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container text-center my-3">
+            <a href="index.html" class="btn btn-danger btn-lg">กลับหน้าหลัก</a>
+        </div>
+    </div>
+    <div class="container-fluid p-3">
+        <div class="container text-center" id="viewer" style="width: 1280; height: 720px;"></div>
+    </div>
+    <div class="container-fluid bg-dark text-light p-5">
+        <div class="container text-center">
+            <h5>623020477-5 นายปณิธาน เทพบุดดี</h5>
+        </div>
+    </div>
+
+
+    <script>
+        var viewer = new PhotoSphereViewer.Viewer({
+            container: document.querySelector('#viewer'),
+            panorama: 'img/360.jpeg',
+            panoData: {
+                fullWidth: 6964,  // ขนาดเต็มของพื้นที่แสดงภาพ
+                fullHeight: 3482,
+                croppedWidth: 6964,  // ขนาดกว้างจริงไฟล์ภาพ (pixel)
+                croppedHeight: 3482, // ขนาดสูงจริงไฟล์ภาพ (pixel)
+                croppedX: 0,
+                croppedY: 0,
+                poseHeading: 0, // 0 to 360
+                posePitch: 0, // -90 to 90
+                poseRoll: 0, // -180 to 180
+            },
+            //MarkersPlugin
+            plugins: [
+                [PhotoSphereViewer.MarkersPlugin, {
+                    markers: [
+                        {
+                            "id": "marker-1",
+                            "image": "img/chair.png",
+                            "longitude": 0.5,
+                            "latitude": -0.5,
+                            "width": 100,
+                            "height": 100,
+                            "tooltip": "chair",
+                        }
+                    ]
+                }]
+            ]
+        });
+    </script>
+
+</body>
+
+</html>
